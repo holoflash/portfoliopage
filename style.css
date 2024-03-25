@@ -1,0 +1,326 @@
+:root {
+    /* dark mode colors */
+    --main-text: #acb6c9;
+    --url-text: #56b6c2;
+    --header-text: #ebbf6c;
+    --outline: solid var(--outline-color) 1px;
+    --background: #2b2f37;
+    --selection: #20232b;
+    --outline-color: #777777;
+}
+
+/* light mode colors */
+input:checked,
+input:checked+* {
+    --main-text: #000;
+    --header-text: #c16eb0;
+    --outline: solid #000000 1px;
+    --background: #ffffff;
+    --selection: rgb(230, 230, 230);
+    --url-text: #0c8ea0;
+}
+
+input {
+    position: absolute;
+    transform-origin: top right;
+    right: 0.4rem;
+    top: 0.2rem;
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    appearance: none;
+    cursor: pointer;
+    font-size: 0.9rem;
+    font-family: 'Courier New', Courier, monospace;
+    color: var(--main-text);
+}
+
+input::before {
+    content: "dark 😎"
+}
+
+input:checked::before {
+    content: "light 😇";
+}
+
+* {
+    box-sizing: border-box;
+    padding: 0;
+    margin: 0;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+    -webkit-tap-highlight-color: transparent;
+}
+
+ul {
+    all: unset;
+    list-style: none;
+}
+
+html,
+body {
+    width: 100%;
+    font-size: 16px;
+    font-family: sans-serif;
+    overflow-x: hidden;
+}
+
+.container {
+    color: var(--main-text);
+    background-color: var(--background);
+    transition: background-color 0.2s ease-in-out;
+}
+
+main {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    gap: 3rem;
+    align-items: center;
+    min-height: 100vh;
+    max-width: 100%;
+    margin-inline: 1rem;
+}
+
+section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    max-width: 60rem;
+}
+
+.about h1 {
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+    font-size: 5rem;
+    color: var(--main-text);
+}
+
+strong {
+    color: var(--header-text);
+}
+
+.name {
+    color: var(--header-text);
+    position: relative;
+    text-decoration: underline;
+    text-decoration-color: var(--url-text);
+}
+
+a {
+    color: var(--url-text);
+}
+
+.about {
+    margin: 1rem;
+    margin-bottom: 2rem;
+    max-width: 58rem;
+}
+
+.about p {
+    text-align: justify;
+    color: var(--main-text);
+    transition: color 0.2s ease-in-out;
+}
+
+.portfolio ul {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-wrap: wrap;
+    gap: 2rem;
+    margin-inline: 1rem;
+}
+
+.portfolio li {
+    align-self: flex-start;
+    position: relative;
+    max-width: 28rem;
+    height: fit-content;
+}
+
+.portfolio p {
+    position: relative;
+    padding: 1rem;
+    min-height: 6rem;
+    border-inline: var(--outline);
+    border-bottom: var(--outline);
+    color: var(--secondary-text);
+    transition: background-color 0.2s ease-in-out;
+}
+
+.portfolio a,
+.contact a {
+    color: var(--url-text);
+    transition: color 0.2s ease-in-out;
+    font-size: 1.1rem;
+}
+
+.portfolio h2 {
+    color: var(--header-text);
+    transition: color 0.2s ease-in-out;
+    font-size: 2rem;
+}
+
+.portfolio h3 {
+    border-inline: var(--outline);
+    font-size: 1rem;
+    color: var(--header-text);
+    letter-spacing: 0.1rem;
+    margin-top: 0.5rem;
+    padding: 1rem;
+    padding-top: 1.8rem;
+    background-color: var(--selection);
+    transition: background-color 0.2s ease-in-out, color 0.2s ease-in-out;
+}
+
+.tech-icons {
+    display: flex;
+    position: absolute;
+    top: -3%;
+    left: 2%;
+}
+
+i {
+    text-align: center;
+    font-size: 1.8rem;
+    padding: 0.4rem;
+    color: var(--main-text);
+    transition: transform 0.1s linear;
+}
+
+.contact {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.contact-links {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}
+
+.contact-links i {
+    cursor: pointer;
+    font-size: 2rem;
+}
+
+.contact-links a {
+    all: unset;
+    display: flex;
+    align-items: center;
+    margin: 1rem;
+}
+
+.contact p {
+    text-align: justify;
+    padding-inline: 1rem;
+}
+
+.contact h2 {
+    font-style: italic;
+    margin: 1rem;
+    font-size: 1.7rem;
+    color: var(--header-text);
+    transition: color 0.2s ease-in-out;
+}
+
+.slideInLeft {
+    opacity: 0;
+    animation: slideInLeft 1s ease-out forwards;
+}
+
+.slideInRight {
+    opacity: 0;
+    animation: slideInRight 1s ease-out forwards;
+}
+
+.balloon {
+    opacity: 0;
+    animation: balloon 1s ease-out forwards;
+    animation-delay: 1000ms;
+
+}
+
+@keyframes slideInLeft {
+    from {
+        transform: translateX(-100%);
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+
+@keyframes slideInRight {
+    from {
+        transform: translateX(100%);
+        opacity: 0;
+    }
+
+    to {
+        opacity: 1;
+        transform: translateX(0%);
+    }
+}
+
+@keyframes balloon {
+    from {
+        transform: scale(1);
+    }
+
+    50% {
+        transform: scale(1.2);
+    }
+
+    to {
+        opacity: 1;
+        transform: scale(1);
+    }
+}
+
+@media only screen and (max-width:350px) {
+    .tech-icons {
+        position: relative;
+        top: 0;
+        left: 0;
+        display: flex;
+        justify-content: space-evenly;
+        flex-wrap: wrap;
+        border-inline: var(--outline);
+        padding: 1rem;
+        color: var(--header-text);
+        background-color: var(--selection);
+    }
+
+    .tech-icons>* {
+        padding: 0.1rem;
+    }
+}
+
+@media only screen and (max-width: 991px) {
+    main {
+        gap: 0;
+    }
+
+    .slideInLeft,
+    .slideInRight,
+    .balloon {
+        opacity: 1;
+        animation: none;
+    }
+
+    .about h1 {
+        font-size: 3rem;
+    }
+
+    .section,
+    .about h1,
+    .contact,
+    p {
+        max-width: 28rem;
+    }
+}
